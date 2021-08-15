@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body style="background: white;">
+    <header class="header">
+        <div class="header2">
+            <img src="./images/cloud_outline 1.png" class="logo" alt="">
+            <p class="logo_text">Frost Client</p>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#" class="nav-active">Home</a></li>
+                    <li><a href="./settings.html" >Settings</a></li>
+                    <li><a href="#" >About</a></li>
+                </ul>
+                <button id="closeBtn" onclick="close()">
+                    <img src="./images/close_big.png" class="close" alt="">
+                </button>
+            </nav>
+        </div>
+    </header>
+    <div id="blur" class="">
+        <div class="backGlaunch"></div>
+        <div class="socials">
+            <div class="socialsBar">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fas fa-globe-americas"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-discord"></i></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-youtube"></i></i></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-twitter"></i></i></i></a>
+                    </li>
+                    <div class="chevronLeft">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="footer"></div>
+        <button class="launch" id="close" onclick="toggle()">Launch</button>
+        <p class="author">Not affiliated with Mojang</p>
+        <p class="version">v1.0-BETA</p>
+    </div>
+    <div id="overlay" class="container" onclick="closeOverlay()">
+        <div class="contents">
+            <h2>Select a version to launch</h2>
+            <button class="versionLaunch" id="1.8.9"><p>1.8.9</p></button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function toggle(){
+            var blur = document.getElementById('blur');
+            blur.classList.add('active');
+            var overlay = document.getElementById('overlay');
+            overlay.classList.add('active');
+
+            document.addEventListener('keydown', function(event){
+	            if(event.key === "Escape"){
+                    blur.classList.remove('active');
+                    overlay.classList.remove('active')
+                }
+            });    
+        }
+
+        function closeOverlay(){
+            var blur = document.getElementById('blur');
+            var overlay = document.getElementById('overlay');
+
+            blur.classList.remove('active');
+            overlay.classList.remove('active')
+        }
+    </script>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".launch"), {
+            max: 15,
+            speed: 3000,
+            scale: 1.1,
+            easing: "cubic-bezier(.03,.98,.52,.99)",
+        });
+
+        VanillaTilt.init(document.querySelectorAll(".versionLaunch"), {
+            max: 12,
+            speed: 3000,
+            scale: 1.05,
+            perspective: 800,
+            easing: "cubic-bezier(.03,.98,.52,.99)",
+        });
+    </script>
+</body>
+</html>
